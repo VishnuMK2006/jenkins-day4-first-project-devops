@@ -14,8 +14,7 @@ const Error = () => {
                                     <img src="/img/404.png" alt="img" />
                                 </div>
                                 <h2>
-                                    Whoops! This Page got Lost <br />
-                                    in converstion
+                                   
                                 </h2>
                                 <Link to="/" className="theme-btn wow slideUp" data-delay=".8">
                                     Go Back Home
