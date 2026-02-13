@@ -176,7 +176,7 @@ Click:
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/019ea09d-9a89-4f8c-b836-975befe3721b" />
 
 ## Logs
-```
+
 `Started by user vishnumanikandan`
 Running as SYSTEM
 `Building in workspace /home/vishnumanikandan/.jenkins/workspace/git automation`
@@ -381,7 +381,7 @@ Server is running from jenkins`
 ad6a9c6418879f530f0d6e0508495c86ca6053dabd7dde08918e8239012389a2
 `Finished: SUCCESS`
 
-```
+
 
 ---
 
