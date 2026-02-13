@@ -176,211 +176,123 @@ Click:
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/019ea09d-9a89-4f8c-b836-975befe3721b" />
 
 ## Logs
+`Started by user vishnumanikandan`<br>
+Running as SYSTEM<br>
+`Building in workspace /home/vishnumanikandan/.jenkins/workspace/git automation`<br>
+[WS-CLEANUP] Deleting project workspace...<br>
+[WS-CLEANUP] Deferred wipeout is used...<br>
+The recommended git tool is: NONE<br>
+No credentials specified<br>
+Cloning the remote Git repository<br>
+`Cloning repository` <br>
+https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git<br>
+ > git init /home/vishnumanikandan/.jenkins/workspace/git automation # timeout=10<br>
+Fetching upstream changes from https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git<br>
+ > git --version # timeout=10<br>
+ > git --version # 'git version 2.43.0'<br>
+ > git fetch --tags --force --progress -- https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10<br>
+ > git config remote.origin.url https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git # timeout=10<br>
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10<br>
+Avoid second fetch<br>
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10<br>
+Checking out Revision aea6121318a52d8cfbd82f7c5171907a1f24b4f7 (refs/remotes/origin/main)<br>
+ > git config core.sparsecheckout # timeout=10<br>
+ > git checkout -f aea6121318a52d8cfbd82f7c5171907a1f24b4f7 # timeout=10<br>
+Commit message: "Merge pull request #2 from VishnuMK2006/mian"<br>
+First time build. Skipping changelog.<br>
+[git automation] $ /bin/sh -xe /tmp/jenkins451065861153576153.sh<br>
 
-`Started by user vishnumanikandan`
-Running as SYSTEM
-`Building in workspace /home/vishnumanikandan/.jenkins/workspace/git automation`
-[WS-CLEANUP] Deleting project workspace...
-[WS-CLEANUP] Deferred wipeout is used...
-The recommended git tool is: NONE
-No credentials specified
-Cloning the remote Git repository
-`Cloning repository` 
-https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
- > git init /home/vishnumanikandan/.jenkins/workspace/git automation # timeout=10
-Fetching upstream changes from https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
- > git --version # timeout=10
- > git --version # 'git version 2.43.0'
- > git fetch --tags --force --progress -- https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
- > git config remote.origin.url https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git # timeout=10
- > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
-Avoid second fetch
- > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision aea6121318a52d8cfbd82f7c5171907a1f24b4f7 (refs/remotes/origin/main)
- > git config core.sparsecheckout # timeout=10
- > git checkout -f aea6121318a52d8cfbd82f7c5171907a1f24b4f7 # timeout=10
-Commit message: "Merge pull request #2 from VishnuMK2006/mian"
-First time build. Skipping changelog.
-[git automation] $ /bin/sh -xe /tmp/jenkins451065861153576153.sh
-`+ echo 🚀 Installing dependencies...
-🚀 Installing dependencies...`
-+ npm install
-npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'react-router@7.1.5',
-npm WARN EBADENGINE   required: { node: '>=20.0.0' },
-npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }
-npm WARN EBADENGINE }
-npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'react-router-dom@7.1.5',
-npm WARN EBADENGINE   required: { node: '>=20.0.0' },
-npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }
-npm WARN EBADENGINE }
+`+ echo 🚀 Installing dependencies...`<br>
+🚀 Installing dependencies...<br>
++ npm install<br>
+npm WARN EBADENGINE Unsupported engine {<br>
+npm WARN EBADENGINE   package: 'react-router@7.1.5',<br>
+npm WARN EBADENGINE   required: { node: '>=20.0.0' },<br>
+npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }<br>
+npm WARN EBADENGINE }<br>
+npm WARN EBADENGINE Unsupported engine {<br>
+npm WARN EBADENGINE   package: 'react-router-dom@7.1.5',<br>
+npm WARN EBADENGINE   required: { node: '>=20.0.0' },<br>
+npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }<br>
+npm WARN EBADENGINE }<br>
+<br>
+added 260 packages, and audited 261 packages in 3s<br>
+<br>
+57 packages are looking for funding<br>
+  run `npm fund` for details<br>
+<br>
+10 vulnerabilities (3 low, 6 moderate, 1 high)<br>
+<br>
+To address all issues, run:<br>
+  npm audit fix<br>
+<br>
+Run `npm audit` for details.<br>
 
-added 260 packages, and audited 261 packages in 3s
+`+ echo 🏗 Building project...`<br>
+🏗 Building project...<br>
++ npm run build<br>
+<br>
+> sungo-react@0.0.0 build<br>
+> tsc -b && vite build<br>
+<br>
+vite v6.1.0 building for production...<br>
+transforming...<br>
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.<br>
+<br>
+More info and automated migrator: https://sass-lang.com/d/import<br>
+<br>
+17 │ @import "_mixins";<br>
+19 │ @import "_variables";<br>
+21 │ @import "_buttons";<br>
+23 │ @import "_typography";<br>
+26 │ @import "_customDropdown";<br>
+<br>
+WARNING: 21 repetitive deprecation warnings omitted.<br>
+<br>
+✓ 764 modules transformed.<br>
+rendering chunks...<br>
+computing gzip size...<br>
+dist/index.html 0.51 kB<br>
+dist/assets/index.css 501.26 kB<br>
+dist/assets/index.js 792.77 kB<br>
+<br>
+(!) Some chunks are larger than 500 kB after minification.<br>
+✓ built in 2.95s<br>
 
-57 packages are looking for funding
-  run `npm fund` for details
+[git automation] $ /bin/sh -xe /tmp/jenkins6770705363029805810.sh<br>
 
-10 vulnerabilities (3 low, 6 moderate, 1 high)
+`+ echo 🐳 Building Docker image...`<br>
+🐳 Building Docker image...<br>
++ docker build -t mywebsite:v1 .<br>
+<br>
+#0 building with "default" instance using docker driver<br>
+#1 load build definition from Dockerfile<br>
+#2 load metadata for node:20-alpine<br>
+#3 load metadata for nginx:1.27-alpine<br>
+#4 load .dockerignore<br>
+#5 FROM node:20-alpine<br>
+#6 FROM nginx:1.27-alpine<br>
+#7 load build context<br>
+#8 WORKDIR /app<br>
+#9 RUN npm install<br>
+#10 COPY . .<br>
+#11 RUN rm /etc/nginx/conf.d/default.conf<br>
+#12 COPY package*.json ./<br>
+#13 RUN npm run build<br>
+#14 COPY nginx.conf<br>
+#15 COPY dist<br>
+#16 exporting to image<br>
+#16 naming to docker.io/library/mywebsite:v1<br>
+#16 DONE<br>
 
-To address all issues, run:
-  npm audit fix
+[git automation] $ /bin/sh -xe /tmp/jenkins13552382043254450619.sh<br>
 
-Run `npm audit` for details.
-`+ echo 🏗 Building project...
-🏗 Building project...`
-+ npm run build
-
-> sungo-react@0.0.0 build
-> tsc -b && vite build
-
-[36mvite v6.1.0 [32mbuilding for production...[36m[39m
-transforming...
-DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-
-More info and automated migrator: https://sass-lang.com/d/import
-
-   ╷
-17 │ @import "_mixins";
-   │         ^^^^^^^^^
-   ╵
-    src/assets/scss/main.scss 17:9  root stylesheet
-
-DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-
-More info and automated migrator: https://sass-lang.com/d/import
-
-   ╷
-19 │ @import "_variables";
-   │         ^^^^^^^^^^^^
-   ╵
-    src/assets/scss/main.scss 19:9  root stylesheet
-
-DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-
-More info and automated migrator: https://sass-lang.com/d/import
-
-   ╷
-21 │ @import "_buttons";
-   │         ^^^^^^^^^^
-   ╵
-    src/assets/scss/main.scss 21:9  root stylesheet
-
-DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-
-More info and automated migrator: https://sass-lang.com/d/import
-
-   ╷
-23 │ @import "_typography";
-   │         ^^^^^^^^^^^^^
-   ╵
-    src/assets/scss/main.scss 23:9  root stylesheet
-
-DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
-
-More info and automated migrator: https://sass-lang.com/d/import
-
-   ╷
-26 │ @import "_customDropdown";
-   │         ^^^^^^^^^^^^^^^^^
-   ╵
-    src/assets/scss/main.scss 26:9  root stylesheet
-
-WARNING: 21 repetitive deprecation warnings omitted.
-Run in verbose mode to see all warnings.
-
-[32m✓[39m 764 modules transformed.
-rendering chunks...
-computing gzip size...
-[2mdist/[22m[32mindex.html                                [39m[1m[2m  0.51 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
-[2mdist/[22m[2massets/[22m[32mfa-v4compatibility-C9RhG_FT.woff2  [39m[1m[2m  4.80 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-v4compatibility-CCth-dXg.ttf    [39m[1m[2m 10.84 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-regular-400-BjRzuEpd.woff2      [39m[1m[2m 25.47 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-regular-400-DZaxPHgR.ttf        [39m[1m[2m 68.06 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-brands-400-D_cYUPeE.woff2       [39m[1m[2m118.68 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-solid-900-CTAAxXor.woff2        [39m[1m[2m158.22 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-brands-400-D1LuMI3I.ttf         [39m[1m[2m210.79 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[32mfa-solid-900-D0aA9rwL.ttf          [39m[1m[2m426.11 kB[22m[1m[22m
-[2mdist/[22m[2massets/[22m[35mindex-BqRZuACT.css                 [39m[1m[2m501.26 kB[22m[1m[22m[2m │ gzip:  80.17 kB[22m
-[2mdist/[22m[2massets/[22m[36mindex-BUTOblZx.js                  [39m[1m[33m792.77 kB[39m[22m[2m │ gzip: 243.85 kB[22m
-[33m
-(!) Some chunks are larger than 500 kB after minification. Consider:
-- Using dynamic import() to code-split the application
-- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
-- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
-[32m✓ built in 2.95s[39m
-[git automation] $ /bin/sh -xe /tmp/jenkins6770705363029805810.sh
-`+ echo 🐳 Building Docker image...
-🐳 Building Docker image...`
-+ docker build -t mywebsite:v1 .
-#0 building with "default" instance using docker driver
-
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 537B done
-#1 DONE 0.0s
-
-#2 [internal] load metadata for docker.io/library/node:20-alpine
-#2 DONE 2.0s
-
-#3 [internal] load metadata for docker.io/library/nginx:1.27-alpine
-#3 DONE 2.0s
-
-#4 [internal] load .dockerignore
-#4 transferring context: 92B done
-#4 DONE 0.0s
-
-#5 [build 1/6] FROM docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a66d28360ec71132750ec8
-#5 resolve docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a66d28360ec71132750ec8 0.0s done
-#5 DONE 0.0s
-
-#6 [stage-1 1/4] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
-#6 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
-#6 DONE 0.0s
-
-#7 [internal] load build context
-#7 transferring context: 17.23MB 0.1s done
-#7 DONE 0.1s
-
-#8 [build 2/6] WORKDIR /app
-#8 CACHED
-
-#9 [build 4/6] RUN npm install
-#9 CACHED
-
-#10 [build 5/6] COPY . .
-#10 CACHED
-
-#11 [stage-1 2/4] RUN rm /etc/nginx/conf.d/default.conf
-#11 CACHED
-
-#12 [build 3/6] COPY package*.json ./
-#12 CACHED
-
-#13 [build 6/6] RUN npm run build
-#13 CACHED
-
-#14 [stage-1 3/4] COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
-#14 CACHED
-
-#15 [stage-1 4/4] COPY --from=build /app/dist /usr/share/nginx/html
-#15 CACHED
-
-#16 exporting to image
-#16 exporting layers done
-#16 exporting manifest sha256:7ec05a8a9d9b3a39919f1b2fc13d7f855d3fc8feb58216a87e42eed3e86a8d3b done
-#16 exporting config sha256:20ee29b8042abc71aed65fa24bfae43361f085090fd032739023a36e23cb503a done
-#16 exporting attestation manifest sha256:0e1cf2d4a012e2cf04bd75a9c27e93d5bb39209054c791ddb11fbd35d6ba3ff3 0.0s done
-#16 exporting manifest list sha256:23eebc3ad5da26a7acc61951fd73ca7171f0b371b50aa128f457e2a99bd27e99 done
-#16 naming to docker.io/library/mywebsite:v1 done
-#16 unpacking to docker.io/library/mywebsite:v1 0.0s done
-#16 DONE 0.1s
-[git automation] $ /bin/sh -xe /tmp/jenkins13552382043254450619.sh
-`+ echo Server is running from jenkins
-Server is running from jenkins`
-`+ docker run -d -p 3000:3000 mywebsite:v1`
-ad6a9c6418879f530f0d6e0508495c86ca6053dabd7dde08918e8239012389a2
+`+ echo Server is running from jenkins`<br>
+Server is running from jenkins<br>
+`+ docker run -d -p 3000:3000 mywebsite:v1`<br>
+ad6a9c6418879f530f0d6e0508495c86ca6053dabd7dde08918e8239012389a2<br>
+<br>
 `Finished: SUCCESS`
-
 
 
 ---
