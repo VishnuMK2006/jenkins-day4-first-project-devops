@@ -1,23 +1,191 @@
-###installation
+# Jenkins Setup
+
+This document describes:
+
+- Jenkins installation using WAR file
+- Initial Jenkins configuration
+- Creating the first Jenkins project
+- Building and running a Dockerized application
+- Using Freestyle and Pipeline methods
+
+
+## Prerequisites
+
+- Java installed (JDK 11 or later recommended)
+- Docker installed
+- Node.js and npm installed
+- Git installed
+
+Verify installations:
+
+```bash
+java -version
+docker -v
+node -v
+npm -v
+git --version
+````
+---
+
+# Jenkins Installation
+
+## Step 1: Download Jenkins
+
+Visit:
+
+[https://www.jenkins.io/download/](https://www.jenkins.io/download/)
+
+Download:
+
+**Generic Java package (.war)**
+
+
+
+## Step 2: Run Jenkins
+
+Navigate to the download directory:
+
+```bash
+cd ~/Downloads
+```
+
+Run Jenkins:
+
+```bash
+java -jar jenkins.war
+```
+
 <img width="1920" height="785" alt="image" src="https://github.com/user-attachments/assets/b1b6ef67-c13c-4756-ad7a-0e361fe25f25" />
+
+## Step 3: Access Jenkins
+
+Open browser:
+
+```
+http://localhost:8080
+```
+
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/367bf79a-9650-493a-b8c9-87a9d22265e5" />
+
+## Step 4: Unlock Jenkins
+
+Retrieve initial admin password:
+
+```bash
+cat ~/.jenkins/secrets/initialAdminPassword
+```
+
+Paste into Jenkins UI.
+
+
+## Step 5: Install Plugins
+
+Select:
+
+✔ Install Suggested Plugins
+
+
+## Step 6: Create Admin User
+
+Example credentials:
+
+```
+Username: root
+Password: root
+```
+
+Store credentials securely.
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/6c155b22-c890-428e-b19c-3aa8cc53a11f" />
 
+---
 
-###method 1
+# First Project Setup
+
+## Repository Used
+
+```
+https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
+```
+
+
+
+# Method 1: Freestyle Project
+
+## Step 1: Create Job
+
+1. Jenkins Dashboard → New Item
+2. Enter project name
+3. Select **Freestyle Project**
+4. Click OK
+
+
+
+## Step 2: Source Code Management
+
+Select:
+
+✔ Git
+
+Repository URL:
+
+```
+https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
+```
+
+Branch:
+
+```
+main
+```
+
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/a838281b-254d-4f1c-bd81-ca5569483019" />
+
+## Step 3: Build Steps
+
+Add **Execute Shell**
+
+```bash
+
+#Add Each build as new build
+echo "Installing dependencies..."  #Build 1
+npm install
+
+echo "Building project..."  #Build 2
+npm run build || true
+
+echo "Building Docker image..." #Build 3
+docker build -t mywebsite:v1 .
+
+echo "Running Docker container..." #Build 4
+docker run -d -p 3000:3000 mywebsite:v1
+
+echo "Server is running from Jenkins"  #Build 5
+```
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/fbe568e7-70b8-4021-abc5-664967be6425" />
 
+## Step 4: Save and Build
 
-Started by user `vishnumanikandan`
+Click:
+
+✔ Apply
+✔ Save
+✔ Build Now
+
+
+## Output screen
+<img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/019ea09d-9a89-4f8c-b836-975befe3721b" />
+
+## Logs
+```
+`Started by user vishnumanikandan`
 Running as SYSTEM
-Building in workspace /home/vishnumanikandan/.jenkins/workspace/git automation
+`Building in workspace /home/vishnumanikandan/.jenkins/workspace/git automation`
 [WS-CLEANUP] Deleting project workspace...
 [WS-CLEANUP] Deferred wipeout is used...
 The recommended git tool is: NONE
 No credentials specified
 Cloning the remote Git repository
-Cloning repository 
+`Cloning repository` 
 https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
  > git init /home/vishnumanikandan/.jenkins/workspace/git automation # timeout=10
 Fetching upstream changes from https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git
@@ -34,8 +202,8 @@ Checking out Revision aea6121318a52d8cfbd82f7c5171907a1f24b4f7 (refs/remotes/ori
 Commit message: "Merge pull request #2 from VishnuMK2006/mian"
 First time build. Skipping changelog.
 [git automation] $ /bin/sh -xe /tmp/jenkins451065861153576153.sh
-+ echo 🚀 Installing dependencies...
-🚀 Installing dependencies...
+`+ echo 🚀 Installing dependencies...
+🚀 Installing dependencies...`
 + npm install
 npm WARN EBADENGINE Unsupported engine {
 npm WARN EBADENGINE   package: 'react-router@7.1.5',
@@ -59,8 +227,8 @@ To address all issues, run:
   npm audit fix
 
 Run `npm audit` for details.
-+ echo 🏗 Building project...
-🏗 Building project...
+`+ echo 🏗 Building project...
+🏗 Building project...`
 + npm run build
 
 > sungo-react@0.0.0 build
@@ -142,8 +310,8 @@ computing gzip size...
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
 [32m✓ built in 2.95s[39m
 [git automation] $ /bin/sh -xe /tmp/jenkins6770705363029805810.sh
-+ echo 🐳 Building Docker image...
-🐳 Building Docker image...
+`+ echo 🐳 Building Docker image...
+🐳 Building Docker image...`
 + docker build -t mywebsite:v1 .
 #0 building with "default" instance using docker driver
 
@@ -207,22 +375,124 @@ computing gzip size...
 #16 unpacking to docker.io/library/mywebsite:v1 0.0s done
 #16 DONE 0.1s
 [git automation] $ /bin/sh -xe /tmp/jenkins13552382043254450619.sh
-+ echo Server is running from jenkins
-Server is running from jenkins
-+ docker run -d -p 3000:3000 mywebsite:v1
+`+ echo Server is running from jenkins
+Server is running from jenkins`
+`+ docker run -d -p 3000:3000 mywebsite:v1`
 ad6a9c6418879f530f0d6e0508495c86ca6053dabd7dde08918e8239012389a2
-Finished: SUCCESS
+`Finished: SUCCESS`
+
+```
+
+---
+
+# Method 2: Freestyle Project with Triggers
+## Step 1: Enable Build Trigger
+
+In job configuration:
+
+✔ Build periodically
+
+Use cron expression generated from:
+
+[https://crontab.guru/](https://crontab.guru/)
+
+Example:
+
+```
+H/5 * * * *
+```
+
+(Runs every 5 minutes)
 
 
+## Step 2: Save Job
 
-## method 2
+✔ Save
+
+Jenkins will trigger builds automatically.
+
+---
+
+# Method 3: Pipeline Project
+
+## Step 1: Create Pipeline Job
+
+1. Jenkins Dashboard → New Item
+2. Enter name
+3. Select **Pipeline**
+4. Click OK
+
+
+## Step 2: Pipeline Script
+
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "mywebsite"
+        TAG = "v1"
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/VishnuMK2006/jenkins-day4-first-project-devops.git'
+            }
+        }
+
+        stage('Build App') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build || true'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t $IMAGE_NAME:$TAG .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh '''
+                docker stop mycontainer || true
+                docker rm mycontainer || true
+                docker run -d -p 3000:3000 --name mycontainer $IMAGE_NAME:$TAG
+                '''
+            }
+        }
+    }
+}
+```
 
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/45362ee8-19d5-498d-8946-bd099c74d599" />
+
+## Step 3: Save and Run
+
+✔ Save
+✔ Build Now
+
+## Pipeline
+
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/4b38471d-234b-4c20-95da-3a8ca20f59ab" />
 
+# Verification
 
-###out put
+Check running containers:
+
+```bash
+docker ps
+```
+
+Access application:
+
+```
+http://localhost:3000
+```
+# Final Output Screen
 
 <img width="1920" height="1114" alt="image" src="https://github.com/user-attachments/assets/019ea09d-9a89-4f8c-b836-975befe3721b" />
-
-
